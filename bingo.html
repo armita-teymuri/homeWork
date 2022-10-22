@@ -115,7 +115,6 @@
       col5 = document.querySelectorAll(".col5");
       col6 = document.querySelectorAll(".col6");
 
-      console.log(col1);
       b = "blue";
       r = "red";
       c1 = 0;
@@ -137,11 +136,12 @@
             c1 = c1 + 1;
 
             let text = col1[c1].getAttribute("bool");
-            console.log(text);
             if (text != true) {
               col1[col1.length - c1].style.backgroundColor = b;
               col1[c1].setAttribute("bool", "true");
               return;
+            } else {
+              alert("here");
             }
           }
         }

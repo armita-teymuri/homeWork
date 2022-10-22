@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #212121;
+      }
+
+      td {
+        padding: 2em;
+        background-color: gray;
+        border: 1px solid rgb(30, 29, 29);
+      }
+
+      td:hover {
+        background-color: rgba(0, 0, 0, 0.477);
+        color: white;
+      }
+
+      .circle {
+        width: 4em;
+        height: 4em;
+        margin: 0 0.5em;
+        border-radius: 100%;
+        background-color: red;
+        cursor: pointer;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .circle-container {
+        display: flex;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="circle-container">
+        <div id="circle1" class="circle" onclick="add(this)"></div>
+        <div id="circle2" class="circle" onclick="add(this)"></div>
+        <div id="circle3" class="circle" onclick="add(this)"></div>
+        <div id="circle4" class="circle" onclick="add(this)"></div>
+        <div id="circle5" class="circle" onclick="add(this)"></div>
+        <div id="circle6" class="circle" onclick="add(this)"></div>
+      </div>
+      <template>
+        <tr>
+          <td bool="false" class="col1"></td>
+          <td bool="false" class="col2"></td>
+          <td bool="false" class="col3"></td>
+          <td bool="false" class="col4"></td>
+          <td bool="false" class="col5"></td>
+          <td bool="false" class="col6"></td>
+        </tr>
+      </template>
+      <table></table>
+    </div>
+    <script>
+      template = document.querySelector("template");
+      table = document.querySelector("table");
+      for (let i = 0; i < 6; i++) table.innerHTML += template.innerHTML;
+
+      circle = document.querySelectorAll(".circle");
+      col1 = document.querySelectorAll(".col1");
+      col2 = document.querySelectorAll(".col2");
+      col3 = document.querySelectorAll(".col3");
+      col4 = document.querySelectorAll(".col4");
+      col5 = document.querySelectorAll(".col5");
+      col6 = document.querySelectorAll(".col6");
+
+      b = "blue";
+      r = "red";
+      C = [0, 0, 0, 0, 0, 0];
+      COL = [col1, col2, col3, col4, col5, col6];
+
+      function add(el) {
+        //Swap r and b
+        [b, r] = [r, b];
+
+        for (j = 0; j < circle.length; j++) circle[j].style.backgroundColor = r;
+
+        //Get the column index 0 to 5
+        I = parseInt(el.id.replace("circle", "")) - 1;
+        alert(el.id);
+        while (C[I] < COL[I].length) {
+          C[I] = C[I] + 1;
+          let text = COL[I][C[I]].getAttribute("bool");
+          if (text != true) {
+            COL[I][COL[I].length - C[I]].style.backgroundColor = b;
+            COL[I][C[I]].setAttribute("bool", "true");
+            return;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
