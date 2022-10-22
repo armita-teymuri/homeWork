@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="" id="" onchange="calc()" />
+    <div>result</div>
+    <input type="button" value="click" onclick="calc()" />
+  </body>
+  <script>
+    i = document.querySelector("input");
+    d = document.querySelector("div");
+
+    function calc() {
+      // alert(d.innerText);
+      alert(i.value);
+      // i = addEventListener("input", () => "d.innerText=eval(i.value);");
+      d.innerText = eval(i.value);
+    }
+  </script>
+</html>

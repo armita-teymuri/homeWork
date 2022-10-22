@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      td {
+        padding: 2em;
+        background-color: gray;
+        border: 1px solid rgb(30, 29, 29);
+      }
+      td:hover {
+        background-color: rgba(0, 0, 0, 0.477);
+        color: white;
+      }
+      .circle {
+        width: 4em;
+        height: 4em;
+        margin: 0 0.5em;
+        border-radius: 100%;
+        background-color: red;
+        cursor: pointer;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+      .circle-container {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle-container">
+        <div id="circle1" class="circle" onclick="add(this)"></div>
+        <div id="circle2" class="circle" onclick="add(this)"></div>
+        <div id="circle3" class="circle" onclick="add(this)"></div>
+        <div id="circle4" class="circle" onclick="add(this)"></div>
+        <div id="circle5" class="circle" onclick="add(this)"></div>
+        <div id="circle6" class="circle" onclick="add(this)"></div>
+      </div>
+      <table>
+        <tr>
+          <td bool="false" class="col1"></td>
+          <td bool="false" class="col2"></td>
+          <td bool="false" class="col3"></td>
+          <td bool="false" class="col4"></td>
+          <td bool="false" class="col5"></td>
+          <td bool="false" class="col6"></td>
+        </tr>
+        <tr>
+          <td bool="false" class="col1"></td>
+          <td bool="false" class="col2"></td>
+          <td bool="false" class="col3"></td>
+          <td bool="false" class="col4"></td>
+          <td bool="false" class="col5"></td>
+          <td bool="false" class="col6"></td>
+        </tr>
+        <tr>
+          <td bool="false" class="col1"></td>
+          <td bool="false" class="col2"></td>
+          <td bool="false" class="col3"></td>
+          <td bool="false" class="col4"></td>
+          <td bool="false" class="col5"></td>
+          <td bool="false" class="col6"></td>
+        </tr>
+        <tr>
+          <td bool="false" class="col1"></td>
+          <td bool="false" class="col2"></td>
+          <td bool="false" class="col3"></td>
+          <td bool="false" class="col4"></td>
+          <td bool="false" class="col5"></td>
+          <td bool="false" class="col6"></td>
+        </tr>
+        <tr>
+          <td bool="false" class="col1"></td>
+          <td bool="false" class="col2"></td>
+          <td bool="false" class="col3"></td>
+          <td bool="false" class="col4"></td>
+          <td bool="false" class="col5"></td>
+          <td bool="false" class="col6"></td>
+        </tr>
+        <tr>
+          <td bool="false" class="col1"></td>
+          <td bool="false" class="col2"></td>
+          <td bool="false" class="col3"></td>
+          <td bool="false" class="col4"></td>
+          <td bool="false" class="col5"></td>
+          <td bool="false" class="col6"></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      circle = document.querySelectorAll(".circle");
+      col1 = document.querySelectorAll(".col1");
+      col2 = document.querySelectorAll(".col2");
+      col3 = document.querySelectorAll(".col3");
+      col4 = document.querySelectorAll(".col4");
+      col5 = document.querySelectorAll(".col5");
+      col6 = document.querySelectorAll(".col6");
+
+      console.log(col1);
+      b = "blue";
+      r = "red";
+      c1 = 0;
+      c2 = 0;
+      c3 = 0;
+      c4 = 0;
+      c5 = 0;
+      c6 = 0;
+      function changeColor() {}
+      function add(el) {
+        t = b;
+        b = r;
+        r = t;
+        for (j = 0; j < circle.length; j++) {
+          circle[j].style.backgroundColor = r;
+        }
+        if (el.id == "circle1") {
+          while (c1 < col1.length) {
+            c1 = c1 + 1;
+
+            let text = col1[c1].getAttribute("bool");
+            console.log(text);
+            if (text != true) {
+              col1[col1.length - c1].style.backgroundColor = b;
+              col1[c1].setAttribute("bool", "true");
+              return;
+            }
+          }
+        }
+        if (el.id == "circle2") {
+          while (c2 < col2.length) {
+            c2 = c2 + 1;
+
+            let text = col2[c2].getAttribute("bool");
+            console.log(text);
+            if (text != true) {
+              col2[col2.length - c2].style.backgroundColor = b;
+              col2[c2].setAttribute("bool", "true");
+              return;
+            }
+          }
+        }
+        if (el.id == "circle3") {
+          while (c3 < col3.length) {
+            c3 = c3 + 1;
+
+            let text = col3[c3].getAttribute("bool");
+            console.log(text);
+            if (text != true) {
+              col3[col3.length - c3].style.backgroundColor = b;
+              col3[c3].setAttribute("bool", "true");
+              return;
+            }
+          }
+        }
+        if (el.id == "circle4") {
+          while (c4 < col4.length) {
+            c4 = c4 + 1;
+
+            let text = col4[c4].getAttribute("bool");
+            console.log(text);
+            if (text != true) {
+              col4[col4.length - c4].style.backgroundColor = b;
+              col3[c4].setAttribute("bool", "true");
+              return;
+            }
+          }
+        }
+        if (el.id == "circle5") {
+          while (c5 < col5.length) {
+            c5 = c5 + 1;
+
+            let text = col5[c5].getAttribute("bool");
+            console.log(text);
+            if (text != true) {
+              col5[col5.length - c5].style.backgroundColor = b;
+              col3[c5].setAttribute("bool", "true");
+              return;
+            }
+          }
+        }
+        if (el.id == "circle6") {
+          while (c6 < col6.length) {
+            c6 = c6 + 1;
+
+            let text = col6[c6].getAttribute("bool");
+            console.log(text);
+            if (text != true) {
+              col6[col6.length - c6].style.backgroundColor = b;
+              col3[c6].setAttribute("bool", "true");
+              return;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

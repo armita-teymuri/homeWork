@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      td {
+        padding: 2em;
+        background-color: rgb(193, 191, 191);
+        border: 1px solid rgb(30, 29, 29);
+      }
+      td:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.477);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td onclick="call(this)"></td>
+        <td onclick="call(this)"></td>
+        <td onclick="call(this)"></td>
+      </tr>
+      <tr>
+        <td onclick="call(this)"></td>
+        <td onclick="call(this)"></td>
+        <td onclick="call(this)"></td>
+      </tr>
+      <tr>
+        <td onclick="call(this)"></td>
+        <td onclick="call(this)"></td>
+        <td onclick="call(this)"></td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    b = "X";
+    a = "O";
+    function call(el) {
+      el.innerText = a;
+      el.style.pointerEvents = "none";
+      el.style.backgroundColor = "white ";
+      t = b;
+      b = a;
+      a = t;
+    }
+  </script>
+</html>

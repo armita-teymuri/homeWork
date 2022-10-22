@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <input type="text" name="txtMin" id="txtMin" />
+    <input type="text" name="txtMax" id="txtMax" />
+    <input type="button" value="round" onclick="roundMe()" />
+    <div id="result"></div>
+  </body>
+  <script>
+    function roundMe() {
+      min = parseInt(document.getElementById("txtMin").value);
+      max = parseInt(document.getElementById("txtMax").value);
+      result = document.getElementById("result");
+      console.log(result);
+      result.innerText = Math.floor(min + Math.random() * (max - min));
+      console.log(min);
+    }
+  </script>
+</html>

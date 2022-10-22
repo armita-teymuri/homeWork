@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        width: 354px;
+        height: 590px;
+        border: 1px solid rgb(233, 227, 227);
+        box-shadow: 2px 3px 10px 5px gray;
+      }
+      .txtShow {
+        width: 100%;
+        height: 200px;
+        background-color: rgb(233, 227, 227);
+        border: none;
+        margin-bottom: 5px;
+        font-size: 50px;
+        word-wrap: normal;
+      }
+      .btn-container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      td {
+        width: 83px;
+        border: 1px solid rgb(161, 160, 160);
+        height: 62px;
+
+        margin: 1px;
+        cursor: pointer;
+        text-align: center;
+      }
+      td:hover {
+        background-color: rgb(161, 160, 160);
+      }
+      .clcbtn {
+        background-color: rgb(204, 202, 202);
+      }
+      .equal {
+        background-color: rgb(156, 156, 247);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="txtShow" class="txtShow" />
+      <table class="btn-container">
+        <tr>
+          <td class="clcbtn" onclick="call(this)">%</td>
+          <td class="clcbtn" onclick="call(this)">CE</td>
+          <td class="clcbtn" onclick="call(this)">C</td>
+          <td class="clcbtn" onclick="call(this)">back</td>
+        </tr>
+        <tr>
+          <td class="clcbtn" onclick="call(this)">1/X</td>
+          <td class="clcbtn" onclick="call(this)">X^2</td>
+          <td class="clcbtn" onclick="call(this)">%</td>
+          <td class="clcbtn" onclick="call(this)">/</td>
+        </tr>
+        <tr>
+          <td onclick="call(this)">1</td>
+          <td onclick="call(this)">2</td>
+          <td onclick="call(this)">3</td>
+          <td class="clcbtn" onclick="call(this)">*</td>
+        </tr>
+        <tr>
+          <td onclick="call(this)">4</td>
+          <td onclick="call(this)">5</td>
+          <td onclick="call(this)">6</td>
+          <td class="clcbtn" onclick="call(this)">-</td>
+        </tr>
+        <tr>
+          <td onclick="call(this)">7</td>
+          <td onclick="call(this)">8</td>
+          <td onclick="call(this)">9</td>
+          <td class="clcbtn" onclick="call(this)">+</td>
+        </tr>
+        <tr>
+          <td onclick="call(this)">+/-</td>
+          <td onclick="call(this)">0</td>
+          <td onclick="call(this)">.</td>
+          <td class="clcbtn" onclick="call(this)">=</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    bool = false;
+    bool2 = false;
+    function call(el) {
+      txt = document.getElementById("txtShow");
+      if (el.innerText == "=") {
+        txt.value = eval(txt.value);
+        bool = true;
+      } else if (el.innerText == "back") {
+        var len = txt.value.length;
+        txt.value = txt.value.substr(0, len - 1);
+      } else {
+        txt.value = txt.value + el.innerText;
+        bool = false;
+      }
+      if (el.innerText == "C") {
+        txt.value = null;
+        bool = false;
+      }
+      if (el.innerText == "CE") {
+        txt.value = null;
+        bool = false;
+      }
+
+      if (el.innerText == "X^2") {
+        txt.value = parseInt(txt.value) * 2;
+      }
+      if (el.innerText == "1/X") {
+        txt.value = 1 / parseInt(txt.value);
+      }
+      a = document.querySelectorAll(".clcbtn");
+      a.forEach(myFunction);
+      function myFunction(item, index) {
+        if (bool == true && el.innerText != item.innerText) {
+          txt.value = null;
+          bool = false;
+        }
+      }
+    }
+  </script>
+</html>

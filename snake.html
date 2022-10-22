@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      #mydiv {
+        position: absolute;
+        left: 10em;
+        top: 10em;
+        background-color: green !important;
+      }
+      .snake {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        position: absolute;
+        left: 10em;
+        top: 10em;
+        pad: 1em;
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mydiv" class="snake"></div>
+    <div id="mydiv2" class="snake"></div>
+    <div id="mydiv3" class="snake"></div>
+    <div id="mydiv4" class="snake"></div>
+    <div id="mydiv5" class="snake"></div>
+    <div id="mydiv6" class="snake"></div>
+  </body>
+  <script>
+    mydiv = document.getElementById("mydiv");
+    mydiv2 = document.getElementById("mydiv2");
+    mydiv3 = document.getElementById("mydiv3");
+    mydiv4 = document.getElementById("mydiv4");
+    mydiv5 = document.getElementById("mydiv5");
+    mydiv6 = document.getElementById("mydiv6");
+
+    function pos() {
+      v = Math.floor(Math.random() * 700);
+      return v;
+    }
+    x = pos();
+    y = pos();
+    mydiv.style.top = y + "px";
+    mydiv.style.left = x + "px";
+    newX = pos();
+    newY = pos();
+    function update() {
+      if (x < newX) x += 1;
+      else if (x > newX) x -= 1;
+      mydiv.style.left = x + "px";
+
+      if (y < newY) y += 1;
+      else if (y > newY) y -= 1;
+      mydiv.style.top = y + "px";
+      if (x == newX && y == newY) {
+        newX = pos();
+        newY = pos();
+      }
+      mydiv2.style.top = y + "px";
+      mydiv2.style.left = x + 13 + "px";
+      mydiv3.style.top = y + "px";
+      mydiv3.style.left = x + 26 + "px";
+      mydiv4.style.top = y + "px";
+      mydiv4.style.left = x + 39 + "px";
+      mydiv5.style.top = y + "px";
+      mydiv5.style.left = x + 52 + "px";
+      mydiv6.style.top = y + "px";
+      mydiv6.style.left = x + 65 + "px";
+    }
+    setInterval(update, 10);
+  </script>
+</html>

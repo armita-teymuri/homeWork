@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="counter">0</div>
+    <input type="button" value="counter" onclick="count()" />
+  </body>
+  <script>
+    mydiv = document.getElementById("counter");
+    function count() {
+      mydiv.innerText = mydiv.innerText + " hello ";
+      setTimeout(count, 1000);
+    }
+  </script>
+</html>

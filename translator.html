@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        width: 440px;
+        height: 300px;
+        border: 1px solid rgb(233, 227, 227);
+        box-shadow: 2px 3px 10px 5px gray;
+      }
+      .txt {
+        height: 40px;
+        box-shadow: 2px 3px 10px 5px gray;
+        margin: 20px;
+      }
+      .lbl {
+        display: inline-block;
+        width: 60px;
+        margin: 20px;
+      }
+      .btn {
+        width: 90%;
+        margin: 30px 10px;
+        height: 40px;
+        box-shadow: 2px 3px 10px 5px gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <label class="lbl" for="txtWord">word</label>
+        <input class="txt" type="text" name="txtWord" id="txtWord" />
+      </div>
+      <div>
+        <label class="lbl" for="txttranslat">translate</label>
+        <input class="txt" type="text" name="txttranslat" id="txttranslat" />
+      </div>
+      <input
+        class="btn"
+        type="button"
+        value="add to translate"
+        onclick="add()"
+      />
+    </div>
+    <script>
+      txtword = document.getElementById("txtWord");
+      txttranslate = document.getElementById("txttranslat");
+      string = { hello: "سلام", know: "دانستن", milk: "شیر" };
+      function add() {
+        //var count = Object.keys(string).length;
+        if (txtword.value != "" && txttranslate.value != "") {
+          string[txtword.value] = txttranslate.value;
+          alert("add to list success!");
+          txtword.value = "";
+          txttranslate.value = "";
+        } else if (txtword.value != "" && txttranslate.value == "") {
+          for (key in string) {
+            if (txttranslate.value == key) {
+              txttranslate.value = string[txtword.value];
+            } else {
+              txttranslate.value = "";
+              alert("this word is not in the list");
+              return;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

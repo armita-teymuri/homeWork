@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div>hello1</div>
+    <div>hello2</div>
+    <div>hello3</div>
+    <input type="button" value="click me" onclick="hideMe()" />
+  </body>
+  <script>
+    i = 0;
+    mydiv = document.getElementsByTagName("div");
+    function hideMe() {
+      d = mydiv[i];
+      d.style.display = "none";
+      i += 1;
+    }
+  </script>
+</html>

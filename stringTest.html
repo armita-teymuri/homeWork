@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var mynumber = 123;
+      var text1 = "armita teymuri";
+      var text2 = "maryam ansari";
+      document.writeln(text1.length); //14
+      document.writeln(text1.charAt(9)); //y
+      document.writeln(text1.concat(text2)); //armita teymurimaryam ansari
+      document.writeln(text1.indexOf("mita")); //2
+      document.writeln(text1.lastIndexOf("mita")); //2
+      document.writeln(text1.replace("armita", "arsham")); //arsham teymuri
+      document.writeln(text1.slice(0, 5)); //armit
+      document.writeln(text1 + mynumber.toString()); //armita teymuri123
+      document.writeln(text1.toLowerCase()); //armita teymuri
+      document.writeln(text1.toUpperCase()); //ARMITA TEYMURI
+      document.writeln(text1.search("teymuri")); //7
+      document.writeln(text1.padStart(25, "*")); //***********armita teymuri
+      document.writeln(text1.padEnd(25, "*")); //armita teymuri***********
+    </script>
+  </body>
+</html>

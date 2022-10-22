@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      .container {
+        width: 100px;
+        height: 300px;
+        background-color: gray;
+        display: flex;
+        flex-direction: column;
+      }
+      .circle {
+        width: 70px;
+        height: 70px;
+        background-color: rgb(47, 6, 6);
+        border-radius: 100%;
+        margin: 15px;
+      }
+      .circle:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle" onclick=" light(this)"></div>
+      <div class="circle" onclick="light(this)"></div>
+      <div class="circle" onclick="light(this)"></div>
+    </div>
+  </body>
+  <script>
+    function lighter() {
+      a = document.getElementsByClassName("circle")[0].style.backgroundColor =
+        "red";
+    }
+    function light(el) {
+      color = "rgb(47, 6, 6)";
+      a = document.getElementsByClassName("circle");
+      a[0].style.backgroundColor = color;
+      a[1].style.backgroundColor = color;
+      a[2].style.backgroundColor = color;
+      if (el == a[0]) el.style.backgroundColor = "green";
+      if (el == a[1]) el.style.backgroundColor = "orange";
+      if (el == a[2]) el.style.backgroundColor = "red";
+    }
+  </script>
+</html>
