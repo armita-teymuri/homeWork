@@ -73,14 +73,17 @@
           txttranslate.value = "";
         } else if (txtword.value != "" && txttranslate.value == "") {
           for (key in string) {
-            if (txttranslate.value == key) {
-              txttranslate.value = string[txtword.value];
-            } else {
-              txttranslate.value = "";
-              alert("this word is not in the list");
+            value = string[key];
+
+            if (txtword.value == key) {
+              console.log(key, "-", value);
+              txttranslate.value = value;
               return;
             }
           }
+        }
+        if (txttranslate.value == "" && txtword.value != "") {
+          alert("this word is not in the list");
         }
       }
     </script>
