@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      s1 = ["0*1*2*3"];
+      s2 = ["0*6*12*18"];
+      s3 = [
+        "0*7*14*21",
+        "7*14*21*28",
+        "14*21*28*35",
+        "1*8*15*22",
+        "2*15*22*29",
+        "2*9*16*23",
+        "6*13*20*27",
+        "13*20*27*34",
+        "12*19*26*33",
+        "5*10*15*20",
+        "10*15*20*25",
+        "15*20*25*30",
+        "11*16*21*26",
+        "16*21*26*31",
+        "17*22*27*32",
+        "4*9*14*19",
+        "9*14*19*24",
+        "3*8*13*18",
+      ];
+      var bb = "";
+      var bbb = "";
+      c1 = [0, 1, 2, 3, 0, 6, 12, 18];
+      for (i = 0; i < 32; i++) {
+        c1 = c1.map((x) => x + 1);
+        bb = c1[0] + "*" + c1[1] + "*" + c1[2] + "*" + c1[3];
+        bbb = c1[4] + "*" + c1[5] + "*" + c1[6] + "*" + c1[7];
+        s1.push(bb);
+        s2.push(bbb);
+      }
+      s1 = s1.concat(s2);
+      const WIN_CHECK_LIST = s1.concat(s3);
+      console.log(WIN_CHECK_LIST);
+    </script>
+  </body>
+</html>
