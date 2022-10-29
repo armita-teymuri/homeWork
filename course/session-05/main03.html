@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      .holder {
+        width: 100%;
+        border: 1px solid black;
+        height: 1em;
+        position: relative;
+      }
+
+      .filler {
+        background-color: purple;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        text-align: center;
+        color: azure;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="holder">
+      <div class="filler">0%</div>
+    </div>
+
+    <script>
+      h = document.querySelector(".holder");
+      f = document.querySelector(".filler");
+
+      function progress() {
+        if (f.clientWidth >= h.clientWidth) {
+          clearInterval(int);
+          return;
+        }
+        f.style.width = f.clientWidth + 1 + "px";
+        f.innerText = Math.floor((100 * f.clientWidth) / h.clientWidth) + "%";
+      }
+
+      int = setInterval(progress, 5);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script>
+        const bin = (decimal) => (decimal >>> 0).toString(2); // -> //https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons
+        const hex = (decimal) => decimal.toString(16)
+
+        A = [1, 0]
+        B = [1, 0]
+
+        for (a of A) {
+            for (b of B) {
+                exp = `${a} & ${b}`
+                console.log(exp, "->", eval(exp))
+            }
+        }
+
+        console.log("---")
+
+        for (a of A) {
+            for (b of B) {
+                exp = `${a} | ${b}`
+                console.log(exp, "->", eval(exp))
+            }
+        }
+
+        console.log("---")
+
+        for (a of A) {
+            for (b of B) {
+                exp = `${a} ^ ${b}`
+                console.log(exp, "->", eval(exp))
+            }
+        }
+
+        console.log("---")
+
+        a = 5
+        b = 7
+        console.log(bin(a).padStart(4, "0"))
+        console.log("&")
+        console.log(bin(b).padStart(4, "0"))
+        console.log(bin(a & b).padStart(4, "0"))
+
+        console.log("---")
+
+        A = [-4, -3, -2, -1, 0, 1, 2, 3, 4]
+        for (a of A) {
+            exp = `~${a}` //Bitwise NOT(~)
+            result = eval(exp)
+            console.log(a, bin(a).padStart(32, "0").slice(-4), "->", result, bin(result).padStart(32, "0").slice(-4))
+        }
+
+        console.log(~6)
+
+        console.log("---")
+
+        for (i = 0; i < 10; i++) {
+            exp = `64<<${i}`
+            result = eval(exp)
+            console.log(exp, '->', bin(result).padStart(32, "0"), result)
+        }
+
+        console.log("---")
+
+        for (i = 0; i < 10; i++) {
+            exp = `64>>${i}`
+            result = eval(exp)
+            console.log(exp, '->', bin(result).padStart(32, "0"), result)
+        }
+
+        console.log("---")
+
+        for (i = 0; i < 10; i++) {
+            exp = `-64>>${i}` //Unsigned right shift
+            result = eval(exp)
+            console.log(exp, '->', bin(result).padStart(32, "0"), result)
+        }
+
+        console.log("---")
+
+        for (i = 0; i < 10; i++) {
+            exp = `-64>>>${i}` //Unsigned right shift (zero-fill right shift) - Result is always non-negative
+            result = eval(exp)
+            console.log(exp, '->', bin(result).padStart(32, "0"), result)
+        }
+    </script>
+</body>
+
+</html>

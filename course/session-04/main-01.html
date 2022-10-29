@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <input type="number" placeholder="Enter a number" />
+    <input type="button" value="D" />
+
+    <script>
+      i = document.querySelector("input[type=button]");
+      u = document.querySelector("input[type=number]");
+
+      i.addEventListener("click", () => {
+        u.value = parseInt(u.value) + 1;
+        alert(u.value);
+      });
+    </script>
+  </body>
+</html>

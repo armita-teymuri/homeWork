@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Shape {
+        size = 100;
+
+        constructor(size) {
+          this.size = size;
+        }
+
+        side() {
+          return this.size * this.size;
+        }
+
+        // side2(){
+        //     return this.side()*2
+        // }
+      }
+
+      Shape.prototype.side2 = function () {
+        return this.side() * 2;
+      };
+
+      s = new Shape(14);
+      console.log(s.side(), s.side2());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      class Shape {
+        size = 100;
+
+        constructor(_size = 10000) {
+          this.size = _size;
+        }
+
+        area() {
+          return this.size * this.size;
+        }
+      }
+
+      s1 = new Shape();
+      s2 = new Shape(150);
+      s3 = new Shape(200);
+
+      //   L = [s1, s2, s3];
+      //   L.forEach((shape) => {
+      //     console.log(shape.size, shape.area());
+      //   });
+
+      console.log(s1.size, s1.area());
+      console.log(s2.size, s2.area());
+      console.log(s3.size, s3.area());
+    </script>
+  </body>
+</html>

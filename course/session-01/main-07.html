@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input
+      type="button"
+      onclick="print_my_screen()"
+      value="Print This Document"
+    />
+    <input
+      type="button"
+      onclick="print_my_text()"
+      value="Print Some Text On Screen"
+    />
+    <div id="my-div">Hello</div>
+    <script>
+      function print_my_screen() {
+        window.print();
+      }
+
+      function print_my_text() {
+        //document.write("<h1>Some Text</h1>");
+        //document.write("<br/>");
+        //document.write("Some Text");
+
+        ddd = document.getElementById("my-div");
+        ddd.innerHTML = "<h1>Some Text</h1>";
+        ddd.innerHTML =ddd.innerHTML+ "<h1>Some Text2</h1>";
+      }
+    </script>
+  </body>
+</html>

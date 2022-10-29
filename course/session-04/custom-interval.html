@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div>0</div>
+    <script>
+      d = document.querySelector("div");
+
+      function myInterval(n) {
+        value = parseInt(d.innerText);
+        value += 1;
+        d.innerText = value;
+
+        setTimeout(() => {
+          myInterval(n - 25);
+        }, n);
+      }
+
+      myInterval(1000);
+    </script>
+  </body>
+</html>

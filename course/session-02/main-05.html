@@ -1,0 +1,22 @@
+<body>
+  <style>
+    #holder {
+      padding: 2em;
+      background-color: brown;
+    }
+  </style>
+  <div id="holder">0</div>
+</body>
+<script>
+  function hello() {
+    myDiv = document.getElementById("holder");
+    r = Math.floor(Math.random() * 255);
+    g = Math.floor(Math.random() * 255);
+    b = Math.floor(Math.random() * 255);
+    myDiv.style.backgroundColor = `rgb(${r},${g},${b})`;
+
+    //a = "rgb(" + r + "," + g + "," + b + ")";
+  }
+
+  setInterval(hello, 1000);
+</script>

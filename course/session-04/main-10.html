@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div {
+            width: 10em;
+            height: 10em;
+            border: 1px solid black;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .drop-holder{
+            width: 30em;
+            height: 30em;
+        }
+
+        .dragging {
+            background-color: royalblue;
+            color: white;
+        }
+
+        .drag-over {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div draggable="true">DragMe
+        <p id="-drag"></p>
+        <p id="-start"></p>
+        <p id="-end"></p>
+    </div>
+    <div class="drop-holder">DropHere
+        <p id="-drop"></p>
+        <p id="-enter"></p>
+        <p id="-over"></p>
+        <p id="-leave"></p>
+    </div>
+    <script>
+        source = document.querySelectorAll("div")[0]
+        target = document.querySelectorAll("div")[1]
+
+
+        source.addEventListener("drag", (e) => {
+            document.querySelector("#-drag").innerHTML = "drag: " + e.x
+        })
+
+
+        source.addEventListener("dragstart", (e) => {
+            document.querySelector("#-start").innerHTML = "dragstart: " + e.x
+            source.classList.add("dragging")
+        })
+
+
+        source.addEventListener("dragend", (e) => {
+            document.querySelector("#-end").innerHTML = "dragend: " + e.x
+            source.classList.remove("dragging")
+        })
+
+
+        /***********************************************************/
+
+
+        target.addEventListener("drop", (e) => {
+            document.querySelector("#-drop").innerHTML = "drop: " + e.x
+        })
+
+
+        target.addEventListener("dragenter", (e) => {
+            document.querySelector("#-enter").innerHTML = "dragenter: " + e.x
+        })
+
+
+        target.addEventListener("dragover", (e) => {
+            document.querySelector("#-over").innerHTML = "dragover: " + e.x
+            target.classList.add("drag-over")
+        })
+
+
+        target.addEventListener("dragleave", (e) => {
+            document.querySelector("#-leave").innerHTML = "dragleave: " + e.x
+            target.classList.remove("drag-over")
+
+            /*
+            div=document.createElement("div")
+            div.classList=source.classList
+            div.innerHTML=source.innerHTML
+            target.appendChild(div)
+            */
+        })
+    </script>
+</body>
+
+</html>

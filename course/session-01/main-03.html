@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        cursor: pointer;
+        user-select: none;
+        border: 1px solid black;
+        border-radius: 1em;
+        display: inline-block;
+        padding: 1em;
+      }
+
+      div:hover {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="my-div" onclick="call()">A</div>
+    <div onclick="call2(this)">C</div>
+    <script>
+      function call() {
+        a = document.getElementById("my-div");
+        a.innerText = "B";
+      }
+
+      function call2(el) {
+        el.innerText = "CC";
+      }
+    </script>
+  </body>
+</html>

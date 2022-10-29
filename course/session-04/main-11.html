@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        user-select: none;
+      }
+
+      div {
+        display: block;
+        padding: 1em;
+        border: 1px solid greenyellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <span> Type on your keyboard </span>
+    <div></div>
+    <span> Move your mouse </span>
+    <div></div>
+
+    <script>
+      div1 = document.getElementsByTagName("div")[0];
+      div2 = document.getElementsByTagName("div")[1];
+
+      document.addEventListener("keyup", function (e) {
+        div1.innerText = "KeyUp: " + e.key;
+      });
+
+      document.addEventListener("keydown", function (e) {
+        div1.innerText = "KeyDown: " + e.key;
+      });
+
+      document.addEventListener("mousemove", function (e) {
+        div2.innerText = `MouseMove-> x:${e.x}, y:${e.y}`;
+      });
+
+      document.addEventListener("mouseup", function (e) {
+        div2.innerText = `MouseUp-> x:${e.x}, y:${e.y}`;
+      });
+
+      document.addEventListener("mousedown", function (e) {
+        div2.innerText = `MouseDown-> x:${e.x}, y:${e.y}`;
+      });
+    </script>
+  </body>
+</html>

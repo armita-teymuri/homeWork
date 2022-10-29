@@ -1,0 +1,26 @@
+<body>
+  <div id="counter">20</div>
+  <input type="button" value="Start Counter" onclick="startCounter()" />
+</body>
+<script>
+  function count() {
+    a = document.getElementById("counter");
+    c = parseInt(a.innerText) - 1;
+    a.innerText = c;
+
+    if (c < 1) {
+      stopCounter();
+    }
+  }
+
+  int = 0;
+
+  function startCounter() {
+    stopCounter();
+    int = setInterval(count, 1000);
+  }
+
+  function stopCounter() {
+    clearInterval(int);
+  }
+</script>

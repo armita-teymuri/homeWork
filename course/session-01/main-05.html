@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      td {
+        padding: 1em;
+        border: 1px solid green;
+        user-select: none;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td onclick="call(this,12)">1</td>
+        <td onclick="call(this,14)">2</td>
+        <td onclick="call(this,16)">3</td>
+      </tr>
+      <tr>
+        <td onclick="call(this,10)">4</td>
+        <td onclick="call(this,20)">5</td>
+        <td onclick="call(this,80)">6</td>
+      </tr>
+      <tr>
+        <td onclick="call(this,100)">7</td>
+        <td onclick="call(this,100)">8</td>
+        <td onclick="call(this,100)">9</td>
+      </tr>
+    </table>
+    <script>
+      function call(el, num) {
+        //alert(el.innerText);
+        el.innerText = num;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<body>
+  <style>
+    #holder {
+      position: absolute;
+      left: 10em;
+      top: 10em;
+      padding: 1em;
+      background-color: cadetblue;
+    }
+  </style>
+
+  <div id="holder">My Holder</div>
+</body>
+<script>
+  h = document.getElementById("holder");
+
+  function pos() {
+    v = Math.floor(Math.random() * 300);
+    return v;
+  }
+
+  x = pos();
+  y = pos();
+
+  h.style.top = y + "px";
+  h.style.left = x + "px";
+
+  newX = pos();
+  newY = pos();
+
+  SPEED = 1;
+
+  function update() {
+    if (x < newX) x += SPEED;
+    else if (x > newX) x -= SPEED;
+    h.style.left = x + "px";
+
+    if (y < newY) y += SPEED;
+    else if (y > newY) y -= SPEED;
+    h.style.top = y + "px";
+
+    if (x == newX && y == newY) {
+      newX = pos();
+      newY = pos();
+    }
+  }
+
+  setInterval(update, 1);
+</script>

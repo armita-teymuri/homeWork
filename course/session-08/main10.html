@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      window.addEventListener("load", () => {
+        d = document.querySelector("div");
+        d.innerHTML = "Hello";
+      });
+
+      window.addEventListener("scroll", () => {
+        //alert(window.pageYOffset);
+      });
+
+      for (let i = 0; i < 1000; i++) {
+        document.body.innerHTML += i + "<br/>";
+      }
+
+      window.addEventListener("resize", () => {
+        //alert(window.pageYOffset);
+        alert(window.innerWidth);
+      });
+    </script>
+    <div></div>
+  </body>
+</html>

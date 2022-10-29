@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .test {
+        border: 1px dashed black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="holder"></div>
+    <script>
+      //   d = document.createElement("div");
+      //   d.classList.add("test");
+      //   d.innerText = "hello";
+
+      y = document.querySelector("#holder");
+      //   y.appendChild(d);
+
+      //--------------------------------------
+
+      for (let i = 0; i < 10; i++) {
+        d = `<div class="test">TEST</div>`;
+        y.innerHTML += d;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <textarea>
+Hello World
+    </textarea>
+    <div></div>
+    <script>
+      t = document.querySelector("textarea");
+      d = document.querySelector("div");
+
+      t.addEventListener("copy", (e) => {
+        txt = window.getSelection().toString();
+
+        d.innerText = "COPY: " + txt;
+        console.log(e);
+      });
+
+      t.addEventListener("cut", (e) => {
+        txt = window.getSelection().toString();
+
+        d.innerText = "CUT: " + txt;
+      });
+
+      t.addEventListener("paste", (e) => {
+        d.innerText = "PASTE";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Shape {}
+      class Rectangle extends Shape {}
+      class Animal {}
+
+      a = new Shape();
+      b = new Rectangle();
+      c = new Animal();
+
+      //console.log(typeof a, typeof Shape);
+      //console.log(typeof c == typeof a);
+      //console.log(c instanceof Shape);
+      console.log(c instanceof Animal);
+      console.log(b instanceof Rectangle);
+      console.log(b instanceof Shape);
+
+      console.log(Shape.prototype.isPrototypeOf(a));
+      console.log(Shape.prototype.isPrototypeOf(c));
+    </script>
+  </body>
+</html>

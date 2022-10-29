@@ -1,0 +1,17 @@
+<body>
+  <style>
+    #holder {
+      font-size: 500%;
+    }
+  </style>
+  <div id="holder">0</div>
+</body>
+<script>
+  function getTime() {
+    myDiv = document.getElementById("holder");
+    q = Date().split(" ")[4].split(":"); //[h,m,s]
+    myDiv.innerText = `${q[0]} ${q[1]}' ${q[2]}"`;
+  }
+
+  setInterval(getTime, 1000);
+</script>

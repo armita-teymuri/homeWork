@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function a() {
+        console.log("AA");
+      }
+
+      function c() {
+        console.log("CC");
+      }
+
+      function b(func) {
+        console.log("B1");
+        func();
+        console.log("B2");
+        console.log("---");
+      }
+
+      b(a);
+      b(c);
+
+      document.addEventListener("keydown", (e) => {
+        key = e.key;
+        alert(key);
+
+        if (key.toLowerCase() == "s") {
+          alert("This is S");
+        }
+      });
+    </script>
+  </body>
+</html>

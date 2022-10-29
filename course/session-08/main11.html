@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="display: block; width: 10em; height: 10em; border: 1px solid red"
+    ></div>
+    <form>
+      <input name="aaa" type="text" />
+      <input name="bbb" type="text" />
+      <input type="submit" />
+    </form>
+    <script>
+      d = document.querySelector("div");
+
+      d.addEventListener("mouseover", () => {
+        d.innerHTML = "MouseOver";
+      });
+
+      d.addEventListener("mouseout", () => {
+        d.innerHTML = "MouseOut";
+      });
+
+      f = document.querySelector("form");
+
+      f.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Shape {
+        x = 100;
+        z = 500;
+        static y = 200;
+
+        func1() {}
+
+        static func2() {}
+      }
+
+      Shape.y = 700;
+
+      console.log(Shape.x, Shape.y);
+
+      shape1 = new Shape();
+      shape2 = new Shape();
+
+      shape1.x = 1000000;
+      console.log(shape1.x, shape1.y);
+      console.log(shape2.x, shape2.y);
+
+      class MyShape extends Shape {}
+
+      MyShape.y = 1000;
+      console.log(MyShape.y);
+      console.log(Shape.y);
+    </script>
+  </body>
+</html>

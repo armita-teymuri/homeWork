@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <input type="text" />
+    <div></div>
+    <p></p>
+    <script>
+      i = document.querySelector("input");
+      d = document.querySelector("div");
+      p = document.querySelector("p");
+
+      i.addEventListener("input", (e) => {
+        if (i.value.length > 1) {
+          d.innerText = "Entered more than 1 character";
+          return;
+        } else if (i.value.length == 0) {
+          d.innerText = "";
+          return;
+        }
+
+        v = i.value.charCodeAt(0);
+        if (v >= 65 && v <= 90) d.innerText = "Capital Case";
+        else if (v >= 97 && v <= 122) d.innerText = "Lower Case";
+        else d.innerText = "Something Else";
+      });
+    </script>
+  </body>
+</html>

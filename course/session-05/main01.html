@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      j = {
+        test: 100,
+        hello: "Hello World",
+        hello1: "Hello World1",
+      };
+
+      j["Y"] = 12;
+      j["Majid"] = "2";
+      j["Majid"] = "2000";
+
+      //alert(j.Majid);
+      alert(j["Majid"]);
+
+      r = JSON.stringify(j);
+      document.writeln(r);
+
+      document.writeln(JSON.parse(r));
+    </script>
+  </body>
+</html>

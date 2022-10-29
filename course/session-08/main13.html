@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <input type="text" onclick="alert('Clicked !!!')" />
+    <input type="button" value="Focus" onclick="setFocus()" />
+    <input type="button" value="click" onclick="setClick()" />
+    <script>
+      i = document.querySelector("input[type=text]");
+
+      const setFocus = () => {
+        i.focus();
+
+        setTimeout(() => {
+          i.blur();
+        }, 5000);
+      };
+
+      const setClick = () => {
+        i.click();
+      };
+    </script>
+  </body>
+</html>

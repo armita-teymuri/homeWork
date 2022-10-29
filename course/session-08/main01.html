@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      map = new Map([
+        [1, "hello"],
+        ["hi", "hello"],
+        ["bye", "goodbye"],
+      ]);
+
+      const show = () => {
+        for (item of map) {
+          console.log(item, item[0], item[1]);
+        }
+        console.log("----------------------------");
+      };
+
+      show();
+
+      console.log(map.has("hello"));
+
+      map.delete("bye");
+
+      show();
+
+      //alert(map.get("bye"));
+
+      map.set("a", "AAA");
+
+      show();
+
+      map.forEach((value, key) => {
+        console.warn(value, key);
+      });
+
+      console.log(map.size);
+    </script>
+  </body>
+</html>

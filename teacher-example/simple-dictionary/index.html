@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <p>Type something like "hello" in textbox</p>
+    <input type="text" oninput="call(this)" />
+    <br />
+    <br />
+    <div>-</div>
+    <script>
+        d = document.querySelector("div")
+
+        const call = (el) => {
+            fetch(`?word=${el.value}`)
+            .then((res)=>res.text())
+            .then((res)=>d.innerHTML=res)
+        }
+    </script>
+</body>
+
+</html>

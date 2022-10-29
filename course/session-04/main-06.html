@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      div {
+        border: 1px solid goldenrod;
+        margin: 1em;
+      }
+
+      p {
+        border: 4px solid royalblue;
+        margin: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      d = document.querySelector("div");
+
+      for (i = 1; i <= 50; i++) {
+        if (i < 5) continue;
+        d.innerHTML += `<div>${i}</div>`;
+        if (i >= 10) break;
+      }
+
+      counter = 0;
+      while (counter++ > 10) {
+        //counter += 1;
+        //if (counter > 10) break;
+        d.innerHTML += `<p>${counter}</p>`;
+      }
+    </script>
+  </body>
+</html>

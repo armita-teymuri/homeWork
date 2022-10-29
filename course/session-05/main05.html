@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <input type="text" />
+    <input type="button" value="=" />
+    <input type="button" value="1" onclick="c(this)" />
+    <input type="button" value="2" onclick="c(this)" />
+    <input type="button" value="+" onclick="c(this)" />
+    <script>
+      t = document.querySelector("input[type=text]");
+      b = document.querySelector("input[type=button]");
+
+      flag = false;
+
+      function c(el) {
+        if (flag && el.value != "+") {
+          t.value = "";
+        }
+        if (flag) {
+          flag = false;
+        }
+        t.value += el.value;
+      }
+
+      b.addEventListener("click", () => {
+        t.value = eval(t.value);
+        flag = true;
+      });
+    </script>
+  </body>
+</html>

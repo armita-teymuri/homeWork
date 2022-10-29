@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        td {
+            border: 1px solid black;
+            padding: 1em;
+            margin: .2em;
+        }
+
+        .-true {
+            background-color: royalblue;
+            color: white;
+        }
+
+        .-false {
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+
+    </table>
+    <script>
+        str = "hello world"
+        _titles = ["", "start index", "end index", "length", "\"hello world\".method(-5)", "\"hello world\".method(4,-4)"]
+        _substr =       ["SubStr",      true, false, true, str.substr(-5),      str.substr(4, -4)]
+        _substring =    ["SubString",   true, true, false, str.substring(-5),   str.substring(4, -4)]
+        _slice =        ["Slice",       true, true, false, str.slice(-5),       str.slice(4, -4)]
+
+        table = document.querySelector("table")
+
+        L = [_titles, _substr, _substring, _slice]
+        for (x of L) {
+            tr = document.createElement("tr")
+
+            for (y of x) {
+                td = document.createElement("td")
+                td.innerText = y
+                if (y === true) {
+                    td.classList.add("-true")
+                } else if (y === false) {
+                    td.classList.add("-false")
+                }
+                tr.appendChild(td)
+            }
+
+            table.appendChild(tr)
+        }
+    </script>
+</body>
+
+</html>

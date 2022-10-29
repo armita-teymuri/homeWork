@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Shape {
+        constructor(_w, _h) {
+          this.w = _w;
+          this.h = _h;
+        }
+
+        side() {
+          return this.w * this.h;
+        }
+      }
+
+      class Rectangle extends Shape {}
+
+      class Square extends Shape {
+        constructor(size) {
+          //super();
+          super(size, size);
+          //this.w = size;
+          //this.h = size;
+        }
+      }
+
+      class Triangle extends Rectangle {
+        side() {
+          //return super.side() / 2;
+          return (this.w * this.h) / 2;
+        }
+      }
+
+      a = new Rectangle(10, 12);
+      console.log(a.side());
+
+      b = new Square(10);
+      console.log(b.side());
+
+      c = new Triangle(10, 12);
+      console.log(c.side());
+    </script>
+  </body>
+</html>

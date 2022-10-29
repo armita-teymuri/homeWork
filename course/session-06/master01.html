@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div></div>
+    <script>
+      d = document.querySelector("div");
+
+      document.addEventListener("keydown", (e) => {
+        d.innerText = "DOWN " + e.key;
+      });
+
+      document.addEventListener("keyup", (e) => {
+        d.innerText = "UP " + e.key;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        d.innerText = "MouseMove " + e.x + " - " + e.y;
+      });
+
+      document.addEventListener("mouseup", (e) => {
+        d.innerText = "MouseUp " + e.x + " - " + e.y;
+      });
+
+      document.addEventListener("mousedown", (e) => {
+        d.innerText = "MouseDown " + e.x + " - " + e.y;
+      });
+
+      console.log("hello");
+      console.error("HHH");
+      console.warn("HHH");
+      console.info("HHH");
+    </script>
+  </body>
+</html>

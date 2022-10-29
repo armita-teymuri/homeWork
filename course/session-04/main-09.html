@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <input type="button" value="red" onclick="changeColor(this)" />
+    <input type="button" value="green" onclick="changeColor(this)" />
+    <input type="button" value="blue" onclick="changeColor(this)" />
+    <input type="button" value="yellow" onclick="changeColor(this)" />
+    <input type="button" value="purple" onclick="changeColor(this)" />
+
+    <script>
+      function changeColor(x) {
+        document.body.style.backgroundColor = x.value;
+      }
+    </script>
+  </body>
+</html>
