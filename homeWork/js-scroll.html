@@ -24,68 +24,75 @@
       }
 
       .holder {
+        margin-left: 80px;
+        width: 90%;
+
         position: fixed;
         display: flex;
         flex-direction: row;
         justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
       }
 
       input {
         box-shadow: 2px 3px 10px 5px white;
         border-radius: 30px;
-        padding: 2em;
+        padding: 1em;
         background-color: transparent;
-        margin: 0.5em;
       }
     </style>
   </head>
 
   <body>
+    <h1>how many parts do you want?</h1>
+    <input type="number" class="txt" />
+    <!-- <input type="text" class="txt" /> -->
+    <input type="button" value="send" onclick="send()" />
+
     <script>
       d = document.querySelector("body");
-      d.innerHTML = "";
 
+      //create holder div
       dd = document.createElement("div");
       dd.className = "holder";
       d.appendChild(dd);
       inp = document.querySelector(".holder");
-      inp.innerHTML = "";
-
-      for (i = 1; i <= 50; i++) {
-        //create dynamic div element
-        div = document.createElement("div");
-        div.className = "cell c" + i;
-        div.innerText = i;
-        //  div.style.backgroundColor = `rgb(${r},${g},${b})`;
-        console.log(div);
-        d.appendChild(div);
-        //create dynamic input element
-        var field = document.createElement("input");
-        field.type = "button";
-        field.value = i;
-        field.setAttribute("onclick", "call(this)");
-        inp.appendChild(field);
-        //random color change
-        r = Math.floor(Math.random() * 255);
-        g = Math.floor(Math.random() * 255);
-        b = Math.floor(Math.random() * 255);
-        mydiv = document.querySelector(".c" + i);
-        console.log(mydiv);
-        mydiv.style.backgroundColor = `rgb(${r},${g},${b})`;
+      function send() {
+        txt = document.querySelector(".txt");
+        txt = txt.value;
+        to = parseInt(txt);
+        for (i = 1; i <= to; i++) {
+          //create dynamic div element
+          div = document.createElement("div");
+          div.className = "cell c" + i;
+          div.innerText = i;
+          console.log(div);
+          d.appendChild(div);
+          //create dynamic input element
+          var field = document.createElement("input");
+          field.type = "button";
+          field.value = i;
+          field.setAttribute("onclick", "call(this)");
+          inp.appendChild(field);
+          //random color change
+          r = Math.floor(Math.random() * 255);
+          g = Math.floor(Math.random() * 255);
+          b = Math.floor(Math.random() * 255);
+          mydiv = document.querySelector(".c" + i);
+          console.log(mydiv);
+          mydiv.style.backgroundColor = `rgb(${r},${g},${b})`;
+        }
+        t = 0;
       }
-      t = 0;
+
       const call = (el) => {
         i = parseInt(el.value);
         d = document.querySelector(".c" + i);
         t = d.offsetTop;
-        //window.scrollTo(0, t);
-        //alert(window.scrollY);
-
         clearInterval(int);
-        setInterval(move, 5);
+        int = setInterval(move, 5); //<----------------------------FIX is here :)
       };
-
       speed = 30;
       const move = () => {
         if (window.scrollY + speed < t) window.scrollBy(0, speed);
