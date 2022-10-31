@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .cell {
+        width: 100%;
+        height: 50%;
+        line-height: 100%;
+        display: block;
+        font-size: 1000%;
+        color: white;
+      }
+
+      .holder {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .btn {
+        position: absolute;
+        width: 10%;
+        height: 10%;
+        background-color: tomato;
+        text-align: center;
+
+        color: white;
+      }
+
+      input {
+        background-color: transparent;
+        margin: 0.5em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      d = document.querySelector("body");
+      d.innerHTML = "";
+
+      dd = document.createElement("div");
+      dd.className = "holder";
+      d.appendChild(dd);
+      inp = document.querySelector(".holder");
+      inp.innerHTML = "";
+
+      for (i = 1; i <= 50; i++) {
+        //create dynamic div element
+        div = document.createElement("div");
+        div.className = "cell c" + i;
+        div.innerText = i;
+        d.appendChild(div);
+        //create dynamic input element
+        var field = document.createElement("input");
+        field.type = "button";
+        field.value = i;
+        field.className = "btn btn" + i;
+        field.setAttribute("onclick", "call(this)");
+        inp.appendChild(field);
+        //random color change
+        r = Math.floor(Math.random() * 255);
+        g = Math.floor(Math.random() * 255);
+        b = Math.floor(Math.random() * 255);
+        mydiv = document.querySelector(".c" + i);
+        mydiv.style.backgroundColor = `rgb(${r},${g},${b})`;
+        //input location
+        myinput = document.querySelector(".btn" + i);
+
+        myinput.style.left = i * 10 + "%";
+      }
+      t = 0;
+      const call = (el) => {
+        i = parseInt(el.value);
+
+        d = document.querySelector(".c" + i);
+        t = d.offsetTop;
+        console.log(t);
+        //window.scrollTo(0, t);
+        //alert(window.scrollY);
+
+        clearInterval(int);
+        setInterval(move, 5);
+      };
+
+      speed = 10;
+      const move = () => {
+        console.log("t:" + t);
+        console.log("window.scrollY:" + window.scrollY);
+        if (window.scrollY + speed < t) window.scrollBy(0, speed);
+        else if (window.scrollY - speed > t) window.scrollBy(0, -speed);
+        else {
+          clearInterval(int);
+          window.scrollTo(0, t);
+        }
+      };
+
+      int = null;
+      //////////h scrol//////////////////////////////////////////////
+      W = window.innerWidth / 10;
+      H = window.innerHeight / 10;
+      _ = document.querySelector(".holder");
+      p = document.querySelector(".btn");
+      MAX = p.offsetWidth * 3;
+      console.log(W);
+      (L = 0), (O = 60);
+      const moveH = (e) => {};
+
+      // Edge and Chrome[]
+      $(window).bind("mousewheel", (e) => move(e.originalEvent));
+
+      // Firefox
+      $(window).bind("DOMMouseScroll", (e) => move(e.originalEvent));
+    </script>
+  </body>
+</html>

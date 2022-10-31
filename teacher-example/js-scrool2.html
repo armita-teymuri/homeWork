@@ -1,0 +1,152 @@
+Skip to content Search or jump to… Pull requests Issues Marketplace Explore
+@armita-teymuri sh-navid / js-instructor Public Code Issues Pull requests
+Actions Projects Security Insights
+js-instructor/concepts/other/js-scroll-to-by-2.html @sh-navid sh-navid Update
+Latest commit 404ece4 12 hours ago History 1 contributor 147 lines (130 sloc)
+3.39 KB IntelliJ IDEA PhpStorm WebStorm
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        transition: 300ms;
+      }
+
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        user-select: none;
+      }
+
+      .cell {
+        width: 100%;
+        height: 75%;
+        line-height: 100%;
+        display: block;
+        font-size: 1000%;
+        color: white;
+        text-align: center;
+        padding-top: 0.75em;
+      }
+
+      .c1,
+      .c3,
+      .c5,
+      .c7 {
+        background-color: #212121;
+        color: #efefef;
+      }
+
+      .c2,
+      .c4,
+      .c6 {
+        background-color: #efefef;
+        color: #212121;
+      }
+
+      .holder {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, 0);
+      }
+
+      input {
+        padding: 0.5em;
+        border-radius: 10em;
+        background-color: #efefef;
+        font-size: 200%;
+        font-weight: bold;
+        color: #212121;
+        border: 0.5em solid #212121;
+      }
+
+      *::-webkit-scrollbar {
+        display: none;
+      }
+
+      * {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .progress,
+      .bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1em;
+        border-bottom: 1px solid #424242;
+      }
+
+      .bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 10em;
+        background-color: #424242;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="holder">
+      <input type="button" value="1" onclick="call(this)" />
+      <input type="button" value="2" onclick="call(this)" />
+      <input type="button" value="3" onclick="call(this)" />
+      <input type="button" value="4" onclick="call(this)" />
+      <input type="button" value="5" onclick="call(this)" />
+      <input type="button" value="6" onclick="call(this)" />
+    </div>
+    <div class="cell c1">1</div>
+    <div class="cell c2">2</div>
+    <div class="cell c3">3</div>
+    <div class="cell c4">4</div>
+    <div class="cell c5">5</div>
+    <div class="cell c6">6</div>
+    <div class="cell c7">7</div>
+    <div class="progress">
+      <div class="bar">
+        <span div="percentage"></span>
+      </div>
+    </div>
+    <script>
+      t = 0;
+      int = null;
+
+      h = document.querySelector(".progress");
+      b = document.querySelector(".bar");
+
+      const call = (el) => {
+        i = parseInt(el.value);
+        d = document.querySelector(".c" + i);
+        t = d.offsetTop;
+
+        clearInterval(int);
+        int = setInterval(move, 5);
+      };
+
+      speed = 10;
+      const move = () => {
+        if (window.scrollY + speed < t) window.scrollBy(0, speed);
+        else if (window.scrollY - speed > t) window.scrollBy(0, -speed);
+        else {
+          clearInterval(int);
+          window.scrollTo(0, t);
+        }
+      };
+    </script>
+  </body>
+</html>
+Footer © 2022 GitHub, Inc. Footer navigation Terms Privacy Security Status Docs
+Contact GitHub Pricing API Training Blog About
+js-instructor/js-scroll-to-by-2.html at master · sh-navid/js-instructor
