@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../jquery-3.6.1.min.js"></script>
     <title>Document</title>
     <style>
       body,
@@ -22,57 +23,59 @@
         font-size: 1000%;
         color: white;
       }
-
       .holder {
-        margin-left: 80px;
-        width: 90%;
-
+        width: 100%;
+        height: 100%;
         position: fixed;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
+        left: 0;
+        top: 150px;
+        overflow-x: hidden;
+      }
+      .btn {
+        position: absolute;
+        width: 10%;
+        height: 10%;
+        background-color: tomato;
+        text-align: center;
+
+        color: white;
       }
 
       input {
-        box-shadow: 2px 3px 10px 5px white;
-        border-radius: 30px;
-        padding: 1em;
         background-color: transparent;
+        margin: 0.5em;
       }
     </style>
   </head>
+  <h1>how many parts do you want?</h1>
+  <input type="number" class="txt" />
+  <input type="button" value="send" onclick="send()" />
 
   <body>
-    <h1>how many parts do you want?</h1>
-    <input type="number" class="txt" />
-    <!-- <input type="text" class="txt" /> -->
-    <input type="button" value="send" onclick="send()" />
-
     <script>
+      //create holder for btn slider
       d = document.querySelector("body");
-
-      //create holder div
       dd = document.createElement("div");
       dd.className = "holder";
       d.appendChild(dd);
       inp = document.querySelector(".holder");
       function send() {
+        //geting number of parts from user
         txt = document.querySelector(".txt");
         txt = txt.value;
         to = parseInt(txt);
+        //making parts
         for (i = 1; i <= to; i++) {
           //create dynamic div element
           div = document.createElement("div");
           div.className = "cell c" + i;
           div.innerText = i;
-          console.log(div);
           d.appendChild(div);
           //create dynamic input element
           var field = document.createElement("input");
           field.type = "button";
           field.value = i;
+          field.className = "btn btn" + i;
           field.setAttribute("onclick", "call(this)");
           inp.appendChild(field);
           //random color change
@@ -80,20 +83,24 @@
           g = Math.floor(Math.random() * 255);
           b = Math.floor(Math.random() * 255);
           mydiv = document.querySelector(".c" + i);
-          console.log(mydiv);
           mydiv.style.backgroundColor = `rgb(${r},${g},${b})`;
+          //input location
+          myinput = document.querySelector(".btn" + i);
+          myinput.style.left = i * 10 + "%";
         }
-        t = 0;
-      }
 
+        t = 0;
+        hslider(to);
+      }
       const call = (el) => {
         i = parseInt(el.value);
         d = document.querySelector(".c" + i);
         t = d.offsetTop;
         clearInterval(int);
-        int = setInterval(move, 5); //<----------------------------FIX is here :)
+        setInterval(move, 5);
       };
-      speed = 30;
+
+      speed = 10;
       const move = () => {
         if (window.scrollY + speed < t) window.scrollBy(0, speed);
         else if (window.scrollY - speed > t) window.scrollBy(0, -speed);
@@ -104,6 +111,34 @@
       };
 
       int = null;
+      //h slider
+      function hslider(to) {
+        slider = $(".holder");
+        pages = $(".holder>.btn");
+        console.log(pages);
+        let idx = 0,
+          W = pages.width();
+
+        const move2 = () => {
+          pages.each((i, el) => {
+            $(el).animate({ left: idx * W + i * W + "px" });
+          });
+        };
+
+        move2(idx);
+        slider.bind("mousewheel DOMMouseScroll", (e) => {
+          pages.stop();
+          if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
+            idx--;
+            if (idx < -to + 11) idx = -to + 11;
+            move2(idx);
+          } else {
+            idx++;
+            if (idx > 0) idx = 0;
+            move2(idx);
+          }
+        });
+      }
     </script>
   </body>
 </html>

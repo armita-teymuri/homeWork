@@ -1,0 +1,25 @@
+<html>
+<head>
+    <script src="jquery-3.6.1.min.js"></script>
+</head>
+<body>
+<div>
+    -
+</div>
+<input type="text" placeholder="Write something"/>
+    <script>
+        //Javascript
+        d = document.querySelector("div")
+        d.innerText="Hello"
+        d.innerHTML="<h1>Hello</h1>"
+
+        //JQuery
+        //a = jQuery("div")
+        a = $("div")
+        a.text("Hii")
+        a.html("<h1>Hello</h1>")
+
+        $("input").val("My Value")
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+        body{
+            height: 2000em;
+            width: 3000em;
+        }
+        div {
+            position: fixed;
+            display: inline-block;
+            border: 2px solid tomato;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p>1</p>
+</div>
+<script>
+    d=$(document)
+    d.scroll((e)=>{
+        el=$(e.target)
+        $("p").text(d.scrollLeft())
+    })
+</script>
+</body>
+
+</html>

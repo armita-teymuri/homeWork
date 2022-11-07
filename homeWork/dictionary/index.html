@@ -61,7 +61,6 @@
     <script>
         txtword = document.getElementById("txtWord");
         txttranslate = document.getElementById("txttranslat");
-alert(  txtword.value);
         const call = () => {
             fetch(`?word=${txtword.value}&translate=${txttranslate.value}`)
             .then((res)=>res.text())

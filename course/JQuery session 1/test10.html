@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.1.min.js"></script>
+</head>
+<body>
+
+<div>
+
+</div>
+<span></span>
+<h1>1</h1>
+<h2>2</h2>
+<h3>3</h3>
+<script>
+    $("div").after("<p>Hello 2</p>")
+    $("<p>Hello 3</p>").insertAfter("div")
+
+    $("div").before("<p>Hello 1</p>")
+    $("<p>Hello 4</p>").insertBefore("div")
+
+    $("div").append("<span>Hello 5</span>")
+    $("<span>Hello 6</span>").appendTo("div")
+
+    $("div").empty()
+</script>
+</body>
+
+</html>

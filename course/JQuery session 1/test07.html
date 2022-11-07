@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div>
+    <p>1</p>
+</div>
+<button>Set Attr</button>
+<button>Get Attr</button>
+<script>
+    $(":button").first().click(()=>{
+        $("div").attr("majid","12")
+    })
+
+    $(":button").last().click(()=>{
+        alert($("div").attr("majid"))
+    })
+</script>
+</body>
+
+</html>

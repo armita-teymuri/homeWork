@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      .page {
+        width: 50%;
+        height: 20em;
+        position: absolute;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="slider">
+      <div class="page" style="background-color: darkorange">1</div>
+      <div class="page" style="background-color: tomato">2</div>
+      <div class="page" style="background-color: deeppink">3</div>
+      <div class="page" style="background-color: darkviolet">4</div>
+    </div>
+
+    <script>
+      pages = $(".page");
+      w = pages.width();
+
+      U = 0;
+
+      const move = () => {
+        pages.each((i, el) => {
+          el = $(el);
+          pages.eq(i).animate({ left: U * w + i * w + "px" });
+        });
+      };
+
+      move();
+
+      $(document).keydown((e) => {
+        pages.stop();
+        if (e.key == "ArrowUp") {
+          U++;
+          if (U > 0) U = 0;
+          move();
+        } else if (e.key == "ArrowDown") {
+          U--;
+          if (U < -2) U = -2;
+          move();
+        }
+        pages.text(U);
+      });
+    </script>
+  </body>
+</html>

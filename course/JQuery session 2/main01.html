@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+      td {
+        width: 1em;
+        height: 1em;
+        line-height: 1em;
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 15em;
+      }
+    </style>
+  </head>
+  <body>
+    <table></table>
+    <script>
+      // Config
+
+      // Ref
+      A = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+      ];
+
+      B = [4, 4, 4, 4, 4];
+
+      C = {
+        0: "-",
+        1: "*",
+        2: "#",
+      };
+
+      table = $("table");
+
+      const render = () => {
+        table.empty();
+        for (row of A) {
+          tr = $("<tr></tr>");
+          for (cel of row) tr.append(`<td>${C[cel]}</td>`);
+          table.append(tr);
+        }
+      };
+
+      render();
+
+      $(document).keydown((e) => {
+        // if (
+        //   (e.keyCode >= 49 && e.keyCode <= 53) ||
+        //   (e.keyCode >= 97 && e.keyCode <= 101)
+        // ) {
+        //   alert(e.key + " - " + e.keyCode);
+        // }
+
+        //if (["1", "2", "3", "4", "5"].includes(e.key)) {
+        //  alert(e.key + " - " + e.keyCode);
+        //}
+
+        k = parseInt(e.key);
+        if (k >= 1 && k <= 5) {
+          //alert(e.key + " - " + e.keyCode);
+          play(k - 1);
+        }
+      });
+
+      Player = [1, 2];
+      const play = (colIndex) => {
+        if (B[colIndex] >= 0) {
+          rowIndex = B[colIndex];
+          A[rowIndex][colIndex] = Player[0];
+          B[colIndex] -= 1;
+
+          Player.reverse();
+          render();
+        }
+      };
+    </script>
+  </body>
+</html>

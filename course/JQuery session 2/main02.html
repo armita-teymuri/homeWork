@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      .page {
+        width: 40%;
+        height: 20em;
+        position: absolute;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <div class="slider">
+        <div class="page" style="background-color: darkorange">
+          USE LEFT/RIGHT ARROW KEYS 1
+        </div>
+        <div class="page" style="background-color: tomato">
+          USE LEFT/RIGHT ARROW KEYS 2
+        </div>
+        <div class="page" style="background-color: deeppink">
+          USE LEFT/RIGHT ARROW KEYS 3
+        </div>
+        <div class="page" style="background-color: darkviolet">
+          USE LEFT/RIGHT ARROW KEYS 4
+        </div>
+      </div>
+    </table>
+    <script>
+      slider = $(".slider");
+      pages = $(".page");
+      (x = 0), (w = pages.width());
+
+      const place = (i) => {
+        pages.eq(0).animate({ left: i * w + w * 0 + "px" });
+        pages.eq(1).animate({ left: i * w + w * 1 + "px" });
+        pages.eq(2).animate({ left: i * w + w * 2 + "px" });
+        pages.eq(3).animate({ left: i * w + w * 3 + "px" });
+      };
+
+      place(x);
+
+      $(document).keydown((e) => {
+        if (e.key == "ArrowRight") place(--x);
+        else if (e.key == "ArrowLeft") place(++x);
+      });
+    </script>
+  </body>
+</html>

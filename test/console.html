@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.time("timer");
+
+      const hello = function () {
+        console.log("Hello Console!");
+      };
+      const bye = function () {
+        console.log("Bye Console!");
+      };
+      hello(); // calling hello();
+      bye(); // calling bye();
+
+      console.timeEnd("timer");
+      //---------------
+
+      console.table({ a: 1, b: 2, c: 3 });
+      //-----------------
+
+      for (let i = 0; i < 10; i += 3) {
+        console.count(i);
+      }
+
+      console.group("group1");
+      console.warn("warning");
+      console.error("error");
+      console.log("I belong to a group");
+      console.groupEnd("group1");
+      console.log("I dont belong to any group");
+
+      const spacing = "10px";
+      const styles = `padding: ${spacing}; background-color: white; color: red; font-style: italic; border: 1px solid black; font-size: 2em;`;
+      console.log("%cI am a styled log", styles);
+    </script>
+  </body>
+</html>

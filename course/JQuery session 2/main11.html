@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      .page {
+        width: 50%;
+        height: 20em;
+        position: absolute;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="slider">
+      <div class="page" style="background-color: darkorange">1</div>
+      <div class="page" style="background-color: tomato">2</div>
+      <div class="page" style="background-color: deeppink">3</div>
+      <div class="page" style="background-color: darkviolet">4</div>
+    </div>
+
+    <script>
+      pages = $(".page");
+      w = pages.width();
+
+      U = 0;
+
+      // https://stackoverflow.com/questions/1985260/rotate-the-elements-in-an-array-in-javascript
+      function arrayRotate(arr, reverse) {
+        if (reverse) arr.unshift(arr.pop());
+        else arr.push(arr.shift());
+        return arr;
+      }
+      // End Of StackOverFlow
+
+      O = [0, 1, 2, 3];
+
+      const move = () => {
+        pages.each((i, el) => {
+          el = $(el);
+          pages.eq(i).animate({ left: U * w + O[i] * w + "px" });
+        });
+      };
+
+      move();
+
+      $(document).keydown((e) => {
+        pages.stop();
+        if (e.key == "ArrowUp") {
+          arrayRotate(O, true);
+          move();
+        } else if (e.key == "ArrowDown") {
+          arrayRotate(O);
+          move();
+        }
+        pages.text(O);
+      });
+    </script>
+  </body>
+</html>

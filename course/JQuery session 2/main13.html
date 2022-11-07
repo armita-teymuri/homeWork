@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+        div {
+            height: 10em;
+            width: 10em;
+            display: inline-block;
+        }
+
+        .holder {
+            background-color: tomato;
+            color: white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Click</button>
+    <button>One Time Click</button>
+    <script>
+        $(":button").first().on("dblclick",()=>{
+            alert("Hello 1")
+        })
+
+        $(":button").last().one("dblclick",()=>{
+            alert("Hello 2")
+            $(":button").first().off("dblclick")
+        })
+
+        $(":button").first().hover((e)=>{
+            $(":button").first().css({color:"red"})
+        },(e)=>{
+            $(":button").first().css({color:"green"})
+        })
+    </script>
+</body>
+
+</html>

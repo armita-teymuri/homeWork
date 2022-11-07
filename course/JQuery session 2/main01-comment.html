@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="jquery-3.6.1.min.js"></script>
+    <style>
+      td {
+        width: 1em;
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 15em;
+      }
+    </style>
+  </head>
+  <body>
+    <table></table>
+    <script>
+      // Config
+
+      // Ref
+      A = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 2, 0, 0],
+        [0, 0, 0, 0, 0],
+      ];
+
+      B = [4, 4, 4, 4, 4];
+
+      C = {
+        0: "-",
+        1: "*",
+        2: "#",
+      };
+
+      table = $("table");
+
+      const render = () => {
+        table.empty();
+
+        for (row of A) {
+          tr = $("<tr></tr>");
+          for (cel of row) {
+            //td = null;
+            //if (cel == 0) {
+            //  td = $("<td>-</td>");
+            //} else if (cel == 1) {
+            //  td = $("<td>%</td>");
+            //} else {
+            //  td = $("<td>#</td>");
+            //}
+
+            td = $(`<td>${C[cel]}</td>`);
+            tr.append(td);
+          }
+          table.append(tr);
+        }
+      };
+
+      render();
+    </script>
+  </body>
+</html>

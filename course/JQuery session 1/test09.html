@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.1.min.js"></script>
+</head>
+<body>
+
+<div>
+    <label>
+        <p v="hello bye hey goodbye">p1</p>
+        <p v="hellogoodbye">p1</p>
+        <p id="hello-world">p2</p>
+        <p><span class="my-span">p3</span></p>
+    </label>
+</div>
+<span></span>
+<h1>1</h1>
+<h2>2</h2>
+<h3>3</h3>
+<script>
+    $(":header").text("Mohsen")
+    //$(":header:eq(0)").text("Mohsen 1")
+    //$(":header").eq(1).text("Mohsen 2")
+    //$(":header").first().text("First Mohsen")
+    //$(":header").last().text("Last Mohsen")
+    //$(":header:first").text("First 1 Mohsen")
+    $(":header:last").text("Last 1 Mohsen")
+    //$(":root").empty()
+    //$("div p .my-span").text("this is a p tag")
+    $("h1,h2").click(()=>{
+        alert("Header")
+    })
+    $("div p>.my-span").text("this is a p tag1")
+
+    $(".my-span").parent().text("this is a p tag2")
+
+    $("p[id]").html("P with ID")
+    $("p[id='hello-world']").html("P with the exact ID")
+    //$("p[id|='hello']").html("P with ID and prefix")
+    $("p[id!='hello-world']").html("P with not this ID")
+    $("p[id^='he']").html("Value of id in P is started with 'he'")
+    $("p[id$='rld']").html("Value of id in P is ends with 'rld'")
+
+    $("p[v~='hey']").html("I found 'hey' here") //tilde
+    $("p[v*='logo']").html("I found 'logo' here")
+</script>
+</body>
+
+</html>
