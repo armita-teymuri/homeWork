@@ -43,6 +43,45 @@
       .circle-container {
         display: flex;
       }
+
+      /* responsaive for mobile(320/481) */
+      @media screen and (min-width: 320px) and (max-width: 480px) {
+        body {
+          background-color: #262626;
+        }
+        td {
+          padding: 1.5em 0.5em;
+        }
+
+        .circle {
+          width: 1.5em;
+          height: 1.5em;
+          margin: 0 0.5em;
+        }
+      }
+      /* responsaive for tablet(481/768) */
+      @media screen and (min-width: 481px) and (max-width: 768px) {
+        td {
+          padding: 1.5em;
+        }
+        .circle {
+          width: 3em;
+          height: 3em;
+          margin: 0 0.5em;
+        }
+      }
+
+      /* responsaive for laptop(769/1024) */
+      @media screen and (min-width: 769px) and (max-width: 1024px) {
+        td {
+          padding: 2em;
+        }
+        .circle {
+          width: 3em;
+          height: 3em;
+          margin: 0 0.5em;
+        }
+      }
     </style>
   </head>
   <body>
