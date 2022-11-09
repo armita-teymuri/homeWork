@@ -12,7 +12,7 @@
       }
 
       .page {
-        width: 60%;
+        width: 500px;
         height: 20em;
         line-height: 20em;
         text-align: center;
@@ -20,51 +20,64 @@
         color: white;
         font-weight: bold;
       }
+      .p1 {
+        background-color: red;
+      }
+      .p2 {
+        background-color: darkorange;
+      }
+      .p3 {
+        background-color: deeppink;
+      }
+      .p4 {
+        background-color: darkviolet;
+      }
     </style>
   </head>
 
   <body>
     <table>
       <div class="slider">
-        <div class="page" style="background-color: darkorange">
-          USE MOUSE WHEEL 1
-        </div>
-        <div class="page" style="background-color: tomato">
-          USE MOUSE WHEEL 2
-        </div>
-        <div class="page" style="background-color: deeppink">
-          USE MOUSE WHEEL 3
-        </div>
-        <div class="page" style="background-color: darkviolet">
-          USE MOUSE WHEEL 4
-        </div>
+        <div class="page p1">1</div>
+        <div class="page p2">2</div>
+        <div class="page p3">3</div>
+        <div class="page p4">4</div>
       </div>
     </table>
     <script>
       slider = $(".slider");
       pages = $(".slider>.page");
-      let idx = 0,
-        W = pages.width();
+      p = document.getElementsByClassName("page");
+      console.log(slider);
+      myarr = Array.from(p);
+      let idx = 0;
 
       const move = () => {
-        pages.each((i, el) => {
-          $(el).animate({ left: idx * W + i * W + "px" });
-        });
-      };
+        i = 0;
 
+        myarr.forEach((element) => {
+          W = element.offsetWidth;
+          $(element).css({ left: idx * W + i * W + "px" });
+          i++;
+        });
+        var x = myarr.shift();
+        myarr.push(x);
+        console.log(myarr);
+      };
       move(idx);
 
-      // Helper link
-      // https://stackoverflow.com/questions/8189840/get-mouse-wheel-events-in-jquery
       slider.bind("mousewheel DOMMouseScroll", (e) => {
         pages.stop();
         if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
           idx--;
-          if (idx < -3) idx = -3;
-          move(idx);
+          if (idx < -1) idx = -1;
+          {
+            move(idx);
+          }
         } else {
           idx++;
           if (idx > 0) idx = 0;
+
           move(idx);
         }
       });
