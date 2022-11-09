@@ -13,6 +13,7 @@
         height: 100%;
         padding: 0;
         margin: 0;
+        background-color: blueviolet;
       }
 
       .cell {
@@ -22,6 +23,9 @@
         display: block;
         font-size: 1000%;
         color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .holder {
         width: 100%;
@@ -35,21 +39,48 @@
         position: absolute;
         width: 10%;
         height: 10%;
-        background-color: tomato;
+        background-color: rgb(223, 176, 223);
         text-align: center;
+        border-radius: 30px;
 
         color: white;
       }
 
       input {
         background-color: transparent;
-        margin: 0.5em;
+        margin: 0.2em;
+      }
+      .container {
+        width: 80%;
+        height: 150px;
+        border: 1px solid rgb(24, 2, 22);
+        box-shadow: 2px 3px 10px 5px rgb(70, 3, 58);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: violet;
+        position: relative;
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .txt {
+        width: 200px;
+        padding: 8px;
+        background-color: aliceblue;
       }
     </style>
   </head>
-  <h1>how many parts do you want?</h1>
-  <input type="number" class="txt" />
-  <input type="button" value="send" onclick="send()" />
+  <div class="flex">
+    <div class="container">
+      <h1>how many parts do you want?</h1>
+      <input type="number" class="txt" />
+      <input type="button" value="send" onclick="send()" />
+    </div>
+  </div>
 
   <body>
     <script>
