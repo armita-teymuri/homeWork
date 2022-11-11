@@ -7,6 +7,14 @@
     <script src="../jquery-3.6.1.min.js"></script>
     <title>Document</title>
   </head>
+  <style>
+    table {
+      color: red;
+    }
+    td {
+      width: 30px;
+    }
+  </style>
   <body>
     <table></table>
     <script>
@@ -28,13 +36,31 @@
       r = [1, 2, 3, 4, 5];
       x = 0;
       y = 1;
+      bool = true;
+
+      //create food for snake
+      const getRandom = () => {
+        const randomRow = Math.floor(Math.random() * A[0].length);
+        const randomCol = Math.floor(Math.random() * A.length);
+        return { randomRow, randomCol };
+      };
+      let randoms = getRandom();
+      let randomRow = randoms.randomRow,
+        randomCol = randoms.randomCol;
       //create table use array A
       const render = () => {
         t.empty();
+
+        // randomRow = 2;
+        // randomCol = 3;
         A.forEach((row, ri) => {
           tr = $("<tr></tr>");
           row.forEach((cell, ci) => {
-            tr.append(`<td pos = "r${ri}c${ci}">-</td>`);
+            if (ri == randomRow && ci == randomCol) {
+              tr.append(`<td pos = "r${ri}c${ci}">#</td>`);
+            } else {
+              tr.append(`<td pos = "r${ri}c${ci}">-</td>`);
+            }
           });
           t.append(tr);
         });
@@ -43,10 +69,11 @@
           $(`td[pos=r${r[i]}c${c[i]}]`).text("#");
         }
       };
-      render();
 
+      render();
       const update = () => {
         //badane mar donbale kalasj bere
+        console.log(randomRow, randomCol);
         for (i = r.length - 1; i > 0; i--) {
           r[i] = r[i - 1];
           c[i] = c[i - 1];
@@ -57,12 +84,20 @@
         if (c[0] < 0) c[0] = 9;
         if (r[0] > 9) r[0] = 0;
         if (r[0] < 0) r[0] = 9;
+        console.log("wwwwwwwwwwwwwwwwwwww", c[0], r[0], randomRow);
+        if (c[0] == randomCol && r[0] == randomRow) {
+          //console.log
+          c.push(0);
+          r.push(0);
+          getRandom();
+          update();
+        }
       };
       setInterval(() => {
         update();
         render();
         console.log(`x:${x} - y:${y}`);
-      }, 200);
+      }, 400);
 
       $(document).keyup((e) => {
         switch (e.key) {
