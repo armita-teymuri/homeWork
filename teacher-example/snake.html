@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../jquery-3.6.1.min.js"></script>
+    <title>Document</title>
+    <style>
+      td {
+        width: 0.75em;
+        text-align: center;
+        user-select: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table></table>
+    <h2>Use W,A,S,D keys</h2>
+    <script>
+      A = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      ];
+
+      X = [1, 1, 1, 1, 1, 1];
+      Y = [1, 2, 3, 4, 5, 6];
+
+      dx = 0;
+      dy = -1;
+
+      d = $("table");
+
+      const render = () => {
+        d.empty();
+        A.forEach((row, y) => {
+          tr = $("<tr></tr>");
+          row.forEach((cell, x) => {
+            td = $(`<td pos='x${x}y${y}'>-</td>`);
+            tr.append(td);
+          });
+          d.append(tr);
+        });
+        for (i in X) {
+          $(`td[pos=x${X[i]}y${Y[i]}]`).text("#");
+        }
+      };
+
+      render();
+
+      setInterval(() => {
+        for (i = X.length - 1; i > 0; i--) {
+          X[i] = X[i - 1];
+          Y[i] = Y[i - 1];
+        }
+
+        X[0] += dx;
+        Y[0] += dy;
+
+        if (X[0] > A[0].length - 1) X[0] = 0;
+        if (X[0] < 0) X[0] = A[0].length - 1;
+        if (Y[0] > A.length - 1) Y[0] = 0;
+        if (Y[0] < 0) Y[0] = A.length - 1;
+
+        render();
+      }, 200);
+
+      document.addEventListener("keypress", (e) => {
+        //alert(e.key)
+        switch (e.key.toLowerCase()) {
+          case "w":
+            dx = 0;
+            dy = -1;
+            break;
+          case "s":
+            dx = 0;
+            dy = +1;
+            break;
+          case "a":
+            dx = -1;
+            dy = 0;
+            break;
+          case "d":
+            dx = 1;
+            dy = 0;
+            break;
+          default:
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

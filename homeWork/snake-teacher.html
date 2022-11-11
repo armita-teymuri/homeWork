@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../jquery-3.6.1.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <table></table>
+    <script>
+      t = $("table");
+      A = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      ];
+      //snake location
+      c = [1, 1, 1, 1, 1];
+      r = [1, 2, 3, 4, 5];
+      x = 0;
+      y = 1;
+      //create table use array A
+      const render = () => {
+        t.empty();
+        A.forEach((row, ri) => {
+          tr = $("<tr></tr>");
+          row.forEach((cell, ci) => {
+            tr.append(`<td pos = "r${ri}c${ci}">-</td>`);
+          });
+          t.append(tr);
+        });
+        //create snake
+        for (i in c) {
+          $(`td[pos=r${r[i]}c${c[i]}]`).text("#");
+        }
+      };
+      render();
+
+      const update = () => {
+        //badane mar donbale kalasj bere
+        for (i = r.length - 1; i > 0; i--) {
+          r[i] = r[i - 1];
+          c[i] = c[i - 1];
+        }
+        c[0] += x;
+        r[0] += y;
+        if (c[0] > 9) c[0] = 0;
+        if (c[0] < 0) c[0] = 9;
+        if (r[0] > 9) r[0] = 0;
+        if (r[0] < 0) r[0] = 9;
+      };
+      setInterval(() => {
+        update();
+        render();
+        console.log(`x:${x} - y:${y}`);
+      }, 200);
+
+      $(document).keyup((e) => {
+        switch (e.key) {
+          case "ArrowUp":
+            x = 0;
+            y = -1;
+            break;
+          case "ArrowDown":
+            x = 0;
+            y = +1;
+            break;
+          case "ArrowLeft":
+            x = -1;
+            y = 0;
+            break;
+          case "ArrowRight":
+            x = +1;
+            y = 0;
+            break;
+          default:
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>

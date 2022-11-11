@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../jquery-3.6.1.min.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .slider {
+        position: relative;
+        height: 2em;
+        border: 1px solid black;
+        width: 60%;
+        left: 200px;
+      }
+      .handele {
+        position: absolute;
+        height: 2em;
+        border: 1px solid black;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 2em;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="handele"></div>
+    </div>
+    <script>
+      s = $(".slider");
+      h = $(".handele");
+      flag = false;
+      h.mousedown((e) => {
+        flag = true;
+      });
+      $(document).mouseup((e) => {
+        flag = false;
+      });
+      $(document).mousemove((e) => {
+        l = e.pageX - s.position().left - h.width() / 2;
+        if (l < 0) l = 0;
+        if (l > s.width()) l = s.width() - h.width();
+        if (flag) {
+          h.css({ left: l + "px" });
+        }
+      });
+    </script>
+  </body>
+</html>
