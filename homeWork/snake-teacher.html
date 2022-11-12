@@ -8,11 +8,14 @@
     <title>Document</title>
   </head>
   <style>
+    body {
+      font-size: 3em;
+    }
     table {
       color: red;
     }
     td {
-      width: 10px;
+      width: 1em;
       border-radius: 100%;
     }
   </style>
@@ -97,7 +100,6 @@
         for (i = r.length - 1; i > 0; i--) {
           if (c[0] == c[i] && r[0] == r[i]) {
             alert("game ended!");
-            return;
           }
         }
       };
@@ -105,7 +107,7 @@
         update();
         render();
         // console.log(`x:${x} - y:${y}`);
-      }, 400);
+      }, 200);
 
       $(document).keyup((e) => {
         switch (e.key) {
