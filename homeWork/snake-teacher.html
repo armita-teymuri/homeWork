@@ -76,10 +76,15 @@
         for (i = r.length - 1; i > 0; i--) {
           r[i] = r[i - 1];
           c[i] = c[i - 1];
+          console.log(r[0], r[i]);
           if (r[i] == randomRow && c[i] == randomCol) {
             getRandom();
           }
+          if (c[0] == c[i] && r[0] == r[i]) {
+            // alert("game ended!");
+          }
         }
+
         c[0] += x;
         r[0] += y;
         if (c[0] > 9) c[0] = 0;
@@ -90,25 +95,28 @@
           c.push(0);
           r.push(0);
           getRandom();
-
           update();
         }
       };
       setInterval(() => {
         update();
         render();
-        console.log(`x:${x} - y:${y}`);
+        // console.log(`x:${x} - y:${y}`);
       }, 400);
 
       $(document).keyup((e) => {
         switch (e.key) {
           case "ArrowUp":
-            x = 0;
-            y = -1;
+            if (y != 1) {
+              x = 0;
+              y = -1;
+            }
             break;
           case "ArrowDown":
-            x = 0;
-            y = +1;
+            if (y != -1) {
+              x = 0;
+              y = +1;
+            }
             break;
           case "ArrowLeft":
             if (x != 1) {
