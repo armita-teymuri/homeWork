@@ -79,11 +79,21 @@ print (tas)
 se = {1:"sad",2:"devist",3:"sisad",4:"chaharsad",5:"punsad",6:"shishsad",7:"haftsad",8:"hashtsad",9:"nohsad"}
 do = {0:"",1:"sad",2:"bist",3:"si",4:"chehel",5:"panjah",6:"shast",7:"hafad",8:"hashtad",9:"navad"}
 yek =  {0:"",1:"yek",2:"do",3:"se",4:"chahar",5:"panj",6:"shish",7:"haft",8:"hasht",9:"noh"}
+yazdah = {
+    1:"yazdah",2:"davazdah",
+3:"sizdah",4:"chahardah",5:"panzdah",6:"shanzdah",7:"hefdah",8:"hejdah",9:"noozdah",0:"dah"}
 i=input("enter number:")
-print(i)
-i=list(i)
-sadgan = i[0]
-dahgan = i[1]
-yekan = i[2]
-print(sadgan)
-print(se[int(sadgan)],"o",do[int(dahgan)],"o",yek[int(yekan)])
+if int(len(i))!=3 or int(i[0])==0 :
+    print("out of range")
+else:
+    i=list(i)
+    sadgan = i[0]
+    dahgan = i[1]
+    yekan = i[2]
+    if int(i[1])==1 :
+        print(se[int(sadgan)],"o",yazdah[int(yekan)])
+    elif int(i[1])==0 :
+        print(se[int(sadgan)],"o",yek[int(yekan)])
+    else:
+        print(se[int(sadgan)],"o",do[int(dahgan)],"o",yek[int(yekan)])
+    
