@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <template>
+      <div>
+        <h1 contenteditable>Degree</h1>
+        <h2>uni name</h2>
+        <span class="date">date</span>
+        <span>to</span>
+        <p>description</p>
+        <button style="display: inline-block" onclick="editMode(this)">
+          edit
+        </button>
+        <button style="display: none">save</button>
+        <button style="display: none">cansel</button>
+        <button style="display: none" onclick="removeBlock(this)">
+          delete
+        </button>
+      </div>
+    </template>
+    <div id="hEdu"></div>
+    <script>
+      t = $("template");
+      hEdu = $("#hEdu");
+      hEdu.append(t.html());
+      hEdu.append(t.html());
+      hEdu.append(t.html());
+
+      const editMode = (el) => {
+        el = $(el);
+        el.css({ display: "none" });
+        el.parent().find(":button:eq(1)").css({ display: "inline-block" });
+        el.parent().find(":button:eq(2)").css({ display: "inline-block" });
+        el.parent().find(":button:eq(3)").css({ display: "inline-block" });
+        el.parent().find(":h1").attr("contenteditable", "true");
+        el.parent().find(":h2").attr("contenteditable", "true");
+        el.parent().find(":span").attr("contenteditable", "true");
+        el.parent().find(":p").attr("contenteditable", "true");
+      };
+      const removeBlock = (el) => {
+        el = $(el);
+        el.parent().remove();
+      };
+    </script>
+  </body>
+</html>
